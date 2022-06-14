@@ -9,18 +9,13 @@ interface AppProps {}
 const App: FunctionComponent<AppProps> = () => {
   const [message, setMessage] = useState(false);
 
-  const props = {
-    site: 'American Hobbit Pub',
-    title: 'We use cookies!',
-    description:
-      'We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.',
-    buttonTitle: 'Accept All',
-    readMoreLink: '/privacy-policy'
-  };
+  const site = 'Sam Gurungs Consultancy';
+  const legal =
+    'We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.';
 
   function deleteCookie() {
     const cookieName =
-      `${props.site.replace(/\s/g, '')}Cookie` ?? 'AsteroidCookie';
+      `${site.replace(/\s/g, '')}Cookie` ?? 'AsteroidCookie';
     document.cookie = `${cookieName}=; Max-Age=0; path=/;`;
 
     setMessage(true);
@@ -29,16 +24,37 @@ const App: FunctionComponent<AppProps> = () => {
   return (
     <div className="App">
       <AsteroidBanner
-        title={props.title}
-        legalStatement={props.description}
-        readMoreLink={props.readMoreLink}
-        buttonTitle={props.buttonTitle}
-        siteName={props.site}
+        id="id-001"
+        title="We use cookies!"
+        siteName={site}
+        cookies={{
+          essential: 'Essential Cookies',
+          functional: 'Functional Cookies',
+          analytics: 'Analytic Cookies',
+          otherCookies: []
+        }}
+        legal={{
+          legalStatement: legal,
+          privacyStatement: '<p>Lorem ipsum</p>'
+        }}
+        buttons={{
+          acceptAll: 'Accept All',
+          rejectAll: 'Reject',
+          manageCookies: 'Manage Cookies',
+          modalSave: 'Save Changes',
+          modalClose: 'Close',
+          readMore: 'Read More',
+          readMoreHref: '/privacy-policy'
+        }}
       />
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Check out the cookie banner!</p>
-        <button className="btn btn-lg btn-outline-light" onClick={deleteCookie}>
+        <button
+          className="btn btn-lg btn-outline-light"
+          onClick={deleteCookie}
+        >
           Delete cookie
         </button>
         {message && (
