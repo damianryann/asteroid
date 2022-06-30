@@ -35,16 +35,16 @@ $utilities: map-merge(
 @import '~bootstrap/scss/grid';
 
 // optional BS5 imports
-//@import '~bootstrap/scss/tables';
+// @import '~bootstrap/scss/tables';
 @import '~bootstrap/scss/forms';
 @import '~bootstrap/scss/buttons';
 // @import '~bootstrap/scss/transitions';
-// @import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/dropdown';
 // @import '~bootstrap/scss/button-group';
-//@import '~bootstrap/scss/nav';
-//@import '~bootstrap/scss/navbar';
-// @import '~bootstrap/scss/card';
-// @import '~bootstrap/scss/accordion';
+// @import '~bootstrap/scss/nav';
+// @import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/accordion';
 // @import '~bootstrap/scss/breadcrumb';
 // @import '~bootstrap/scss/pagination';
 // @import '~bootstrap/scss/badge';
@@ -58,7 +58,7 @@ $utilities: map-merge(
 // @import '~bootstrap/scss/popover';
 // @import '~bootstrap/scss/carousel';
 // @import '~bootstrap/scss/spinners';
-//@import '~bootstrap/scss/offcanvas';
+// @import '~bootstrap/scss/offcanvas';
 
 // BS5 helpers
 @import '~bootstrap/scss/helpers';
@@ -68,9 +68,9 @@ $utilities: map-merge(
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,3 +79,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+

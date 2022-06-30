@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import logo from '../../assets/logo.svg';
 
 import { AsteroidBanner } from '../../components';
@@ -7,9 +7,7 @@ import './App.scss';
 interface AppProps {}
 
 const App: FunctionComponent<AppProps> = () => {
-  const [message, setMessage] = useState(false);
-
-  const site = 'Sam Gurungs Consultancy';
+  const site = 'Bradley Brian Macros Consultancy';
   const legal =
     'We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.';
 
@@ -18,7 +16,7 @@ const App: FunctionComponent<AppProps> = () => {
       `${site.replace(/\s/g, '')}Cookie` ?? 'AsteroidCookie';
     document.cookie = `${cookieName}=; Max-Age=0; path=/;`;
 
-    setMessage(true);
+    window.location.reload();
   }
 
   return (
@@ -31,7 +29,22 @@ const App: FunctionComponent<AppProps> = () => {
           essential: 'Essential Cookies',
           functional: 'Functional Cookies',
           analytics: 'Analytic Cookies',
-          otherCookies: []
+          otherCookies: [
+            {
+              name: 'token',
+              duration: 'session',
+              description:
+                'This cookie is a URL-safe JSON web token (JWT) designed to enable the single sign-on (SSO) web browsing experience.',
+              type: 'essential'
+            },
+            {
+              name: '_g',
+              duration: 'session',
+              description:
+                'Is a google cookie',
+              type: 'analytics'
+            }
+          ]
         }}
         legal={{
           legalStatement: legal,
@@ -57,11 +70,6 @@ const App: FunctionComponent<AppProps> = () => {
         >
           Delete cookie
         </button>
-        {message && (
-          <div className="alert alert-success fs-5 mt-3" role="alert">
-            Please refresh the page!
-          </div>
-        )}
       </header>
     </div>
   );

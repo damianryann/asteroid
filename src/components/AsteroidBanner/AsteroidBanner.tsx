@@ -127,7 +127,7 @@ const AsteroidBanner: FunctionComponent<AsteroidProps> = ({
             </div>
             <div className="col-sm-12 col-md-2 d-flex flex-column align-items-center justify-content-center">
               <button
-                className="btn btn-secondary w-100"
+                className="btn btn-primary w-100"
                 onClick={() =>
                   acceptCookies(true, true, siteName, setVisible)
                 }
@@ -135,13 +135,13 @@ const AsteroidBanner: FunctionComponent<AsteroidProps> = ({
                 {acceptAll}
               </button>
               <button
-                className="btn btn-outline-secondary mt-2 w-100"
+                className="btn btn-outline-primary mt-2 w-100"
                 onClick={() => rejectCookies(siteName, setVisible)}
               >
                 {rejectAll}
               </button>
               <button
-                className="btn btn-outline-secondary mt-2 w-100"
+                className="btn btn-outline-primary mt-2 w-100"
                 onClick={() => openModal(true)}
               >
                 {manageCookies}
@@ -169,11 +169,18 @@ export interface LegalTypes {
   privacyStatement: string;
 }
 
+export interface OtherCookies {
+  name: string;
+  duration: number | string;
+  description: string;
+  type: string;
+}
+
 export interface CookiesTypes {
   essential: string;
   functional: string;
   analytics: string;
-  otherCookies?: [];
+  otherCookies: OtherCookies[];
 }
 
 export interface AsteroidProps {
